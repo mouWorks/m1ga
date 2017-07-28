@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+    <h1> Hello </h1>
+    <h2> Welcome</h2>
+
+    <div id="root">
+        <input type="text" id="input" v-model="message">
+
+        <p> The value of the input is  : {{ message }} </p>
+
+    </div>
+
+
+
+    <!-- Vue JS -->
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+
+    let data = {
+        message: 'hello M1GA'
+    };
+
+    //console.log(1111);
+    //Vue.use(VueResource);
+
+    Vue.prototype.$http = axios;
+
+    //Vue.http.headers.common['Access-Control-Allow-Origin'] = 'http://www.104.com.tw';
+    //Vue.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#token').getAttribute('value');
+
+    new Vue({
+       
+    //    http: {
+    //         root: '/root',
+    //         headers: {
+    //             //Authorization: 'Basic YXBpOnBhc3N3b3Jk',
+    //             common: {
+    //                 'Access-Control-Allow-Origin': 'http://www.104.com.tw'
+    //             }
+    //         }
+    //     },
+        
+        el : '#root',
+        data : data,
+
+        mounted(){
+            //Making AJAX requests
+
+            var callone = '/tryGet.php';
+
+            // axios.get(callone)
+            //      .then(response => console.log(response));
+
+        
+            this.$http.get(callone)
+                .then(function(response){
+                    console.log(response.request.headers);
+                });
+
+
+
+
+            // axios({
+            //     method:'get',
+            //     url:callone,
+            //     responseType:'json',
+            //     })
+            //     .then(function(response) {
+
+            //         console.log(response);
+                    
+            //         console.log(response.request.headers);
+            //     });
+
+
+
+        }
+
+
+
+
+
+    })
+
+    </script>
+
+</body>
+</html>

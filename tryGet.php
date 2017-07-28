@@ -4,9 +4,12 @@ cols=J,JOB,NAME";
 $data = file_get_contents($url);
 //echo 'trying: use FileGetContents';
 $data = json_decode($data, TRUE);
+///echo $data;
 
-var_dump($data);
+//var_dump($data);
 
 //echo json_encode($data);
+
+echo json_encode($data);
 
 ?>
