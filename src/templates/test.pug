@@ -1,0 +1,67 @@
+template#testPage
+  .container
+    ul.i_content(style='padding:0px;')
+      li.faq
+        ul
+          li.title
+            span.dot 1
+            | 選擇您想要的職務類別
+            span.summary 1/3
+          li.faq_content
+            ul
+              li.faq_content_left
+                input(type='radio', name='', value='')
+                | 經營 / 人資類
+                br
+                input(type='radio', name='', value='')
+                | 行銷企劃 / 專案管理類
+                br
+                input(type='radio', name='', value='')
+                | 餐飲旅遊類
+                br
+                input(type='radio', name='', value='')
+                | 操作維修 / 技術類
+                br
+                input(type='radio', name='', value='')
+                | 營建 / 製圖類
+                br
+                input(type='radio', name='', value='')
+                | 文字工作 / 傳媒類
+                br
+                input(type='radio', name='', value='')
+                | 學術教育 / 輔導類
+                br
+                input(type='radio', name='', value='')
+                | 生產製造 / 品管類
+                br
+                input(type='radio', name='', value='')
+                | 財會 / 金融類
+                br
+              li.faq_content_left
+                input(type='radio', name='', value='')
+                | 客服 / 業務 / 貿易類
+                br
+                input(type='radio', name='', value='')
+                | 資訊軟體系統類
+                br
+                input(type='radio', name='', value='')
+                | 資材 / 物流 / 運輸類
+                br
+                input(type='radio', name='', value='')
+                | 藝術設計類
+                br
+                input(type='radio', name='', value='')
+                | 醫療 / 保健類
+                br
+                input(type='radio', name='', value='')
+                | 研發相關類
+                br
+                input(type='radio', name='', value='')
+                | 軍警消 / 保全類
+                br
+                input(type='radio', name='', value='')
+                | 其他職類
+                br
+      li.btn
+        router-link(to='/job') 下一步
+        //- a(href='job.php') 下一步
