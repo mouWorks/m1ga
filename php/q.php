@@ -3,15 +3,10 @@
 require_once('base.php');
 
 $base = new Base();
+$queryString = '?cat=2001001001&area=6001001001&fmt=8&cols=J,JOB,NAME'; //Default;
 
-
-
-$queryString = '?cat=2001001001&area=6001001001&fmt=8&cols=J,JOB,NAME';
-
-if(isset($_GET['C'])){
+if(isset($_GET['case'])){
     
-
-
     $case = $_GET['C'];
 
     switch($case)
@@ -20,23 +15,20 @@ if(isset($_GET['C'])){
         case 'c':
         case 'C':
 
-            echo 'fuck c';
-            exit();
-
-
             $queryString = '?cat=2001001001&area=6001001001&fmt=8&cols=J,JOB,NAME';
             break;
 
         case 'd':
         case 'D':
 
-            echo 'D';
-            exit();
-
-
-            $queryString = '?cat=2001001001&area=6001001000&fmt=8&cols=J&sltp=S&slmin=22000&slmax=81000';
+            $queryString = '?cat=2007001006&area=6001001000&fmt=8&cols=J&sltp=S&slmin=22000&slmax=81000';
             break;
 
+        case 'e':
+        case 'E':
+
+            $queryString = 'cat=2001001000&major=3001001000&fmt=8&cols=JOBNO,NAME,JOB';
+            break;
 
 
 
@@ -48,7 +40,7 @@ if(isset($_GET['C'])){
 }
 
 
-
+$base->dd($queryString);
 
 
 

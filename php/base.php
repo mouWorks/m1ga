@@ -9,7 +9,7 @@ class base
     public function query($queryString){
 
         $host = 'http://www.104.com.tw/i/apis/jobsearch.cfm';
-        $queryString = '?cat=2001001001&area=6001001001&fmt=8&cols=J,JOB,NAME';
+        //$queryString = '?cat=2001001001&area=6001001001&fmt=8&cols=J,JOB,NAME';
         //$queryString = urlencode($queryString);
 
         $url = $host . $queryString;
