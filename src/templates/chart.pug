@@ -1,0 +1,6 @@
+template#chartPage
+  .container
+    h1 chart123
+    .block
+      a.button(v-for='cityName in citiesList', @click='selectedCity=cityName') {{cityName}}
+    canvas#canvChart(width='400', height='400')

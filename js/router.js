@@ -5,6 +5,7 @@ const router = new VueRouter({
     { path: '/job', component: jobView },
     { path: '/new', component: newView },
     { path: '/test', component: testView },
-    { path: '/trans', component: transView }
+    { path: '/trans', component: transView },
+    { path: '/chart', component: chartView },
   ]
 })

@@ -4,11 +4,13 @@ block styles_and_scripts
   include ./src/shared/styles_and_scripts.pug
   link(rel="stylesheet", href="css/style.css")
   script(src="js/custom.js")
+  script(src="db/citiesModel.js")
   script(src="js/components/main.js")
   script(src="js/components/job.js")
   script(src="js/components/new.js")
   script(src="js/components/test.js")
   script(src="js/components/trans.js")
+  script(src="js/components/chart.js")
 
 block bottom_scripts
   script(src="js/router.js")
@@ -26,3 +28,4 @@ block body_content
   include ./src/templates/new.pug
   include ./src/templates/test.pug
   include ./src/templates/trans.pug
+  include ./src/templates/chart.pug
