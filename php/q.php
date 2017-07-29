@@ -5,8 +5,15 @@ require_once('base.php');
 $base = new Base();
 //$queryString = '?cat=2001001001&area=6001001001&fmt=8&cols=J,JOB,NAME'; //Default;
 
-//Default::
-$queryString = '?fmt=8';
+//Default:: Output is JSON and Order
+$queryString = '?fmt=8&order=6&sltp=S'; 
+
+//Limit Salary
+
+
+//Show the Salary
+$queryString .= '&cols=J,JOB,NAME,SAL_MONTH_LOW,ADDR_NO_DESCRIPT,PERIOD,WELFARE';
+
 
 //地區Array
 $areaArray = array(
@@ -36,23 +43,23 @@ $areaArray = array(
 
 //職類Array
 $catArray = array(
-    'a' => '2001000000', //經營 / 人資類
-    'b' => '2004000000', //行銷企劃 / 專案管理類
-    'c' => '2006000000', //餐飲旅遊類
-    'd' => '2010000000', //操作維修 / 技術類
-    'e' => '2012000000', //營建 / 製圖類
-    'f' => '2014000000', //文字工作 / 傳媒類
-    'g' => '2016000000',// 學術教育 / 輔導類
-    'h' => '2009000000',// 生產製造 / 品管類
-    'i' => '2003000000',// 財會 / 金融類
-    'j' => '2005000000',// 客服 / 業務 / 貿易類
-    'k' => '2007000000',// 資訊軟體系統類
-    'l' => '2011000000',// 資材 / 物流 / 運輸類
-    'm' => '2013000000',// 藝術設計類
-    'n' => '2015000000',// 醫療 / 保健類
-    'o' => '2008000000',// 研發相關類
-    'p' => '2017000000',// 軍警消 / 保全類
-    'q' => '2018000000',// 其他職類
+    'a' => 2001000000, //經營 / 人資類
+    'b' => 2004000000, //行銷企劃 / 專案管理類
+    'c' => 2006000000, //餐飲旅遊類
+    'd' => 2010000000, //操作維修 / 技術類
+    'e' => 2012000000, //營建 / 製圖類
+    'f' => 2014000000, //文字工作 / 傳媒類
+    'g' => 2016000000,// 學術教育 / 輔導類
+    'h' => 2009000000,// 生產製造 / 品管類
+    'i' => 2003000000,// 財會 / 金融類
+    'j' => 2005000000,// 客服 / 業務 / 貿易類
+    'k' => 2007000000,// 資訊軟體系統類
+    'l' => 2011000000,// 資材 / 物流 / 運輸類
+    'm' => 2013000000,// 藝術設計類
+    'n' => 2015000000,// 醫療 / 保健類
+    'o' => 2008000000,// 研發相關類
+    'p' => 2017000000,// 軍警消 / 保全類
+    'q' => 2018000000,// 其他職類
 );
 
 //Mount Area
@@ -71,8 +78,30 @@ if(isset($_GET['cat'])){
     $queryString = $queryString . '&cat=' . $catCode;
 }
 
+//Mount Role: 0 | Junior, 1 | Senior
+if(isset($_GET['role'])){
+    
+    $role = $_GET['role'];
+
+    if ( 0 == $role){
+        $queryString .= '&exp_all=2&exp=0,-1';
+    }
+
+    if ( 1 == $role){
+        $queryString .= '&exp_all=1&exp=2';
+    }
+}
+
+if(isset($_GET['slmin'])){
+    $queryString .= '&slmin=' . $_GET['slmin'];
+}
+
+if(isset($_GET['slmax'])){
+    $queryString .= '&slmax=' . $_GET['slmax'];
+}
 
 $base->dd($queryString);
+
 $data = $base->query($queryString);
 
 //echo 'check';
