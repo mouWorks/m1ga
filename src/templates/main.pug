@@ -1,0 +1,16 @@
+#app.container
+  router-view
+
+template#mainPage
+  div
+    .block
+      h1.title Hello!
+    .block
+      label API URL:
+      input(type='text', v-model='apiUrl')
+    .block
+      button(@click='load()') get
+    .block
+      div(v-text='message')
+      hr
+      div(v-text='data')
