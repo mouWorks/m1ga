@@ -3,10 +3,23 @@ const jobView = {
 
   data () {
     return {
-      url: 'http://m1ga.win/php/q.php',
+      //url: 'http://m1ga.win/php/q.php',
       jobCount: null,
       jobList: [],
+      params: {
+        area: '6001001000',
+        cat: 'a',
+        role: 0,
+        slmin: 22000,
+        slmax: 51000,
+      },
       message: ''
+    }
+  },
+
+  computed: {
+    url () {
+      return 'http://m1ga.win/php/q.php?' + $.param(this.params)
     }
   },
 
