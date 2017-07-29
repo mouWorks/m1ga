@@ -69,55 +69,15 @@
         <ul class="content">
           <li class="map">
             <ul>
-              <li class="info">轉生營<span class="info_job"><span style="font-size:32px;">後端工程師</span><br>在新北市共有<span style="color:#ff7900;">73</span> 個職缺</span></li>
+              <li class="info">轉生營<span class="info_job"><span style="font-size:32px;">後端工程師</span><br>在新北市共有<span style="color:#ff7900;">{{jobCount}}</span> 個職缺</span></li>
               <li class="chart">生活指數表</li>
             </ul>
           </li>
-          <li class="job">
+          <li class="job" v-for="job in jobList">
             <ul>
-              <li class="title">設備工程師</li>
-              <li class="des">科林研發股份有限公司_Lam Research</li>
-              <li class="des">新竹市  |  2年經驗  |  薪水55,000+</li>
-              <li class="yaya"><span>不加班</span><span>氣氛和諧</span><span>獎金制度優</span></li>
-              <li></li>
-              <li class="apply"><a href="javascript:;">我要應徵</a></li>
-            </ul>
-          </li>
-          <li class="job">
-            <ul>
-              <li class="title">設備工程師</li>
-              <li class="des">科林研發股份有限公司_Lam Research</li>
-              <li class="des">新竹市  |  2年經驗  |  薪水55,000+</li>
-              <li class="yaya"><span>不加班</span><span>氣氛和諧</span><span>獎金制度優</span></li>
-              <li></li>
-              <li class="apply"><a href="javascript:;">我要應徵</a></li>
-            </ul>
-          </li>
-          <li class="job">
-            <ul>
-              <li class="title">設備工程師</li>
-              <li class="des">科林研發股份有限公司_Lam Research</li>
-              <li class="des">新竹市  |  2年經驗  |  薪水55,000+</li>
-              <li class="yaya"><span>不加班</span><span>氣氛和諧</span><span>獎金制度優</span></li>
-              <li></li>
-              <li class="apply"><a href="javascript:;">我要應徵</a></li>
-            </ul>
-          </li>
-          <li class="job">
-            <ul>
-              <li class="title">設備工程師</li>
-              <li class="des">科林研發股份有限公司_Lam Research</li>
-              <li class="des">新竹市  |  2年經驗  |  薪水55,000+</li>
-              <li class="yaya"><span>不加班</span><span>氣氛和諧</span><span>獎金制度優</span></li>
-              <li></li>
-              <li class="apply"><a href="javascript:;">我要應徵</a></li>
-            </ul>
-          </li>
-          <li class="job">
-            <ul>
-              <li class="title">設備工程師</li>
-              <li class="des">科林研發股份有限公司_Lam Research</li>
-              <li class="des">新竹市  |  2年經驗  |  薪水55,000+</li>
+              <li class="title">{{job.JOB}}</li>
+              <li class="des">{{job.NAME}}</li>
+              <li class="des"><span>{{job.ADDR_NO_DESCRIPT}}</span><span>&nbsp;|&nbsp;</span><span>{{job.PERIOD}}年經驗</span><span>&nbsp;|&nbsp;</span><span>薪水{{job.SAL_MONTH_LOW}}</span></li>
               <li class="yaya"><span>不加班</span><span>氣氛和諧</span><span>獎金制度優</span></li>
               <li></li>
               <li class="apply"><a href="javascript:;">我要應徵</a></li>
