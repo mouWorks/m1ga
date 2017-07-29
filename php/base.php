@@ -53,7 +53,8 @@ class base
     //Toss Out data;
     public function toss($data){
         header('Content-Type: application/json');
-        echo json_encode($data);
+        echo $data;
+        //echo json_encode($data);
     }
 
 } //end of class
