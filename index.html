@@ -66,7 +66,7 @@
           <li class="gotop"><a href="javascript:;"></a></li>
           <li class="map">
             <ul>
-              <li class="info">{{status}}<span class="info_job"><span style="font-size:32px;">後端工程師</span><br>在新北市共有<span style="color:#ff7900;">{{jobCount}}</span> 個職缺</span></li>
+              <li class="info">{{status}}<span class="info_job"><span style="font-size:32px;">{{jobNameHash[$route.params.cat]}}</span><br>在新北市共有<span style="color:#ff7900;">{{jobCount}}</span> 個職缺</span></li>
               <li class="chart">
                 <div class="chart_title">生活指數表<span><img src="images/dot-orange.png">該區各項指數   <img src="images/dot-blue.png">全台平均</span></div>
                 <canvas id="canvas" height="300" width="600"></canvas>

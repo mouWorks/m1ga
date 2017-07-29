@@ -1,3 +1,5 @@
+const JobNameHash = {"a":"\u7d93\u71df \/ \u4eba\u8cc7\u985e ","b":"\u884c\u92b7\u4f01\u5283 \/ \u5c08\u6848\u7ba1\u7406\u985e ","c":"\u9910\u98f2\u65c5\u904a\u985e","d":"\u64cd\u4f5c\u7dad\u4fee \/ \u6280\u8853\u985e","e":"\u71df\u5efa \/ \u88fd\u5716\u985e","f":"\u6587\u5b57\u5de5\u4f5c \/ \u50b3\u5a92\u985e","g":" \u5b78\u8853\u6559\u80b2 \/ \u8f14\u5c0e\u985e","h":" \u751f\u7522\u88fd\u9020 \/ \u54c1\u7ba1\u985e","i":" \u8ca1\u6703 \/ \u91d1\u878d\u985e","j":" \u5ba2\u670d \/ \u696d\u52d9 \/ \u8cbf\u6613\u985e","k":" \u8cc7\u8a0a\u8edf\u9ad4\u7cfb\u7d71\u985e","l":" \u8cc7\u6750 \/ \u7269\u6d41 \/ \u904b\u8f38\u985e","m":" \u85dd\u8853\u8a2d\u8a08\u985e","n":" \u91ab\u7642 \/ \u4fdd\u5065\u985e","o":" \u7814\u767c\u76f8\u95dc\u985e","p":" \u8ecd\u8b66\u6d88 \/ \u4fdd\u5168\u985e","q":" \u5176\u4ed6\u8077\u985e"}
+
 const jobView = {
   template: '#jobPage',
 
@@ -14,6 +16,7 @@ const jobView = {
         slmin: 22000,
         slmax: 99999,
       },
+      jobNameHash: JobNameHash,
       message: ''
     }
   },
