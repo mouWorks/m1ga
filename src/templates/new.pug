@@ -1,9 +1,19 @@
 template#newPage
   .container
-    ul.i_content
-      li.title 新手村
+    ul.i_content.i_small
       li.photo
-      li.des 即將進入職場不知所措嗎？希望藉由我們專業的建議，讓您覺得條條大路通羅馬，並擁有初生之犢不畏虎的氣魄過關斬將，得到第一份重要的工作。
+        ul
+          li.new_bg
+            img(src='images/new-bg.png')
+          li.new_pen
+            img(src='images/new-pen.png')
+          li.new_chemical
+            img(src='images/new-chemical.png')
+          li.new_math
+            img(src='images/new-math.png')
+          li.new_travel
+            img(src='images/new-travel.png')
+      li.title 菜鳥出巢
+      li.des 我是初入職場的小菜鳥，我想要有不錯的薪資還有良好的生活品質。不同的城市會有不同面貌，我的第一份工作會在哪裡呢？
       li.btn
-        router-link(to='/test') 前往試煉
-        //- a(href='test.php') 前往試煉
+        router-link(:to="{name: 'test', params: { role: 0 }}") 前往

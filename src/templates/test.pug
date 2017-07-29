@@ -1,6 +1,6 @@
 template#testPage
   .container
-    ul.i_content(style='padding:0px;')
+    ul.i_content
       li.faq
         ul
           li.title
@@ -9,59 +9,59 @@ template#testPage
             span.summary 1/3
           li.faq_content
             ul
-              li.faq_content_left
-                input(type='radio', name='', value='')
-                | 經營 / 人資類
-                br
-                input(type='radio', name='', value='')
-                | 行銷企劃 / 專案管理類
-                br
-                input(type='radio', name='', value='')
-                | 餐飲旅遊類
-                br
-                input(type='radio', name='', value='')
-                | 操作維修 / 技術類
-                br
-                input(type='radio', name='', value='')
-                | 營建 / 製圖類
-                br
-                input(type='radio', name='', value='')
-                | 文字工作 / 傳媒類
-                br
-                input(type='radio', name='', value='')
-                | 學術教育 / 輔導類
-                br
-                input(type='radio', name='', value='')
-                | 生產製造 / 品管類
-                br
-                input(type='radio', name='', value='')
-                | 財會 / 金融類
-                br
-              li.faq_content_left
-                input(type='radio', name='', value='')
-                | 客服 / 業務 / 貿易類
-                br
-                input(type='radio', name='', value='')
-                | 資訊軟體系統類
-                br
-                input(type='radio', name='', value='')
-                | 資材 / 物流 / 運輸類
-                br
-                input(type='radio', name='', value='')
-                | 藝術設計類
-                br
-                input(type='radio', name='', value='')
-                | 醫療 / 保健類
-                br
-                input(type='radio', name='', value='')
-                | 研發相關類
-                br
-                input(type='radio', name='', value='')
-                | 軍警消 / 保全類
-                br
-                input(type='radio', name='', value='')
-                | 其他職類
-                br
-      li.btn
-        router-link(to='/job') 下一步
-        //- a(href='job.php') 下一步
+              form
+                li.faq_content_left
+                  input#job1(type='radio', name='job', value='a')
+                  label(for='job1', @click="cat='a'") 經營 / 人資類
+                  br
+                  input#job2(type='radio', name='job', value='b')
+                  label(for='job2', @click="cat='b'") 行銷企劃 / 專案管理類
+                  br
+                  input#job3(type='radio', name='job', value='c')
+                  label(for='job3', @click="cat='c'") 餐飲旅遊類
+                  br
+                  input#job4(type='radio', name='job', value='d')
+                  label(for='job4', @click="cat='d'") 操作維修 / 技術類
+                  br
+                  input#job5(type='radio', name='job', value='e')
+                  label(for='job5', @click="cat='e'") 營建 / 製圖類
+                  br
+                  input#job6(type='radio', name='job', value='f')
+                  label(for='job6', @click="cat='f'") 文字工作 / 傳媒類
+                  br
+                  input#job7(type='radio', name='job', value='g')
+                  label(for='job7', @click="cat='g'") 學術教育 / 輔導類
+                  br
+                  input#job8(type='radio', name='job', value='h')
+                  label(for='job8', @click="cat='h'") 生產製造 / 品管類
+                  br
+                  input#job9(type='radio', name='job', value='i')
+                  label(for='job9', @click="cat='i'") 財會 / 金融類
+                  br
+                li.faq_content_left
+                  input#job10(type='radio', name='job', value='j')
+                  label(for='job10', @click="cat='j'") 客服 / 業務 / 貿易類
+                  br
+                  input#job11(type='radio', name='job', value='k')
+                  label(for='job11', @click="cat='k'") 資訊軟體系統類
+                  br
+                  input#job12(type='radio', name='job', value='l')
+                  label(for='job12', @click="cat='l'") 資材 / 物流 / 運輸類
+                  br
+                  input#job13(type='radio', name='job', value='m')
+                  label(for='job13', @click="cat='m'") 藝術設計類
+                  br
+                  input#job14(type='radio', name='job', value='n')
+                  label(for='job14', @click="cat='n'") 醫療 / 保健類
+                  br
+                  input#job15(type='radio', name='job', value='o')
+                  label(for='job15', @click="cat='o'") 研發相關類
+                  br
+                  input#job16(type='radio', name='job', value='p')
+                  label(for='job16', @click="cat='p'") 軍警消 / 保全類
+                  br
+                  input#job17(type='radio', name='job', value='q')
+                  label(for='job17', @click="cat='q'") 其他職類
+                  br
+      li.btn.i_btn
+        router-link(:to="{name: 'test2', params: { role: $route.params.role, cat: cat }}") 下一步

@@ -1,0 +1,24 @@
+template#test2Page
+  .container
+    ul.i_content
+      li.faq
+        ul
+          li.title
+            span.dot 2
+            | 選擇您想要的薪資範圍
+            span.summary 2/3
+          li.faq_content
+            ul
+              form
+                li.faq_content_left
+                  input#salary1(type='radio', name='salary', value='')
+                  label(for='salary1', @click="sl='3k'") 22,000~39,999
+                  br
+                  input#salary2(type='radio', name='salary', value='')
+                  label(for='salary2', @click="sl='4k'") 40,000~49,999
+                  br
+                  input#salary3(type='radio', name='salary', value='')
+                  label(for='salary3', @click="sl='5k'") 50,000以上
+                  br
+      li.btn.i_btn
+        router-link(:to="{name: 'test3', params: { role: $route.params.role, cat: $route.params.cat, sl: sl }}") 下一步

@@ -1,0 +1,33 @@
+template#test3Page
+  .container
+    ul.i_content
+      li.faq
+        ul
+          li.title
+            span.dot 3
+            | 選擇您最在意的條件
+            span.summary 3/3
+          li.faq_content
+            ul
+              form
+                li.faq_content_left
+                  input#point1(type='radio', name='point', value='')
+                  label(for='point1') 收入
+                  br
+                  input#point2(type='radio', name='point', value='')
+                  label(for='point2') 環境品質
+                  br
+                  input#point3(type='radio', name='point', value='')
+                  label(for='point3') 犯罪率
+                  br
+                  input#point4(type='radio', name='point', value='')
+                  label(for='point4') 平均壽命
+                  br
+                  input#point5(type='radio', name='point', value='')
+                  label(for='point5') 教育程度
+                  br
+                  input#point6(type='radio', name='point', value='')
+                  label(for='point6') 幸福指數
+                  br
+      li.btn.i_btn
+        router-link(:to="{name: 'job', params: { role: $route.params.role, cat: $route.params.cat, sl: $route.params.sl }}") 確定

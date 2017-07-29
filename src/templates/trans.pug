@@ -1,9 +1,19 @@
 template#transPage
   .container
-    ul.i_content
-      li.title 轉生營
+    ul.i_content.i_small
       li.photo
-      li.des 想要換換人生口味嗎？覺得自己身懷其他技能卻沒地方發揮？請選擇您想轉職的產業類型，我們將會提供您相關的職缺比較以及分析比較哦！
+        ul
+          li.new_bg
+            img(src='images/old-bg.png')
+          li.new_taipei
+            img(src='images/transfer-taipei.png')
+          li.new_taichung
+            img(src='images/transfer-taichung.png')
+          li.new_tainan
+            img(src='images/transfer-tainan.png')
+          li.new_kaohsiung
+            img(src='images/transfer-kaohsiung.png')
+      li.title 老鳥跳巢
+      li.des 我在異鄉打滾多年了，父母希望我多陪陪他們，不知道我的家鄉有沒有合適的工作呢？
       li.btn
-        router-link(to='/test') 前往試煉
-        //- a(href='test.php') 前往試煉
+        router-link(:to="{name: 'test', params: { role: 1 }}") 前往

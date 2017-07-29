@@ -34,11 +34,11 @@ const ValuesList = [
 
 const ValueLabelsList = [
   "收入",
-  "環境",
+  "環境品質",
   "犯罪率",
-  "健康",
-  "教育",
-  "幸福"
+  "平均壽命",
+  "教育程度",
+  "幸福指數"
 ]
 
 const CitiesModel = {

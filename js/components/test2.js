@@ -1,9 +1,9 @@
-const testView = {
-  template: '#testPage',
+const test2View = {
+  template: '#test2Page',
 
   data () {
     return {
-      cat: ''
+      sl: ''
     }
   },
 
