@@ -1,6 +1,21 @@
-// js for index.pug
+//
+// header
+//
+Vue.component('header-section', {
+  template: '#headerSec'
+})
 
-const app = new Vue({
-  el: '#app',
+//
+// footer
+//
+Vue.component('footer-section', {
+  template: '#footerSec'
+})
+
+//
+// js for index.pug
+//
+var app = new Vue({
+  el: '#wrapper',
   router: router,
 })

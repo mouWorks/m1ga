@@ -1,4 +1,4 @@
-const main = {
+const mainView = {
   template: '#mainPage',
 
   data () {
