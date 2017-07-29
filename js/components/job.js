@@ -65,6 +65,9 @@ const jobView = {
         this.message = 'Please enter Url...'
       }
     },
+    remove (job) {
+      this.jobList.splice(this.jobList.indexOf(job), 1)
+    },
     chart () {
       let ctx = document.getElementById("canvas").getContext("2d")
       var barChart = new Chart(ctx, {

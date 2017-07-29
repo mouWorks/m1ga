@@ -80,7 +80,7 @@
               <li class="des">{{job.NAME}}</li>
               <li class="des"><span>{{job.ADDR_NO_DESCRIPT}}</span><span>&nbsp;|&nbsp;</span><span>{{job.PERIOD}}年經驗</span><span>&nbsp;|&nbsp;</span><span>薪水{{job.SAL_MONTH_LOW}}</span></li>
               <li class="yaya"><span>不加班</span><span>氣氛和諧</span><span>獎金制度優</span></li>
-              <li class="love"><a href="javascript:;"><span class="loveyes"></span></a><a href="javascript:;"><span class="loveyno"></span></a></li>
+              <li class="love"><a href="javascript:;"><span class="loveyes"></span></a><a @click="remove(job)"><span class="loveyno"></span></a></li>
               <li class="apply"><a href="javascript:;">我要應徵</a></li>
             </ul>
           </li>
