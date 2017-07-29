@@ -65,8 +65,9 @@ const jobView = {
         this.message = 'Please enter Url...'
       }
     },
-    remove (job) {
-      this.jobList.splice(this.jobList.indexOf(job), 1)
+    remove (job, event) {
+      $(event.target).parents('.job').hide('slow')
+      //this.jobList.splice(this.jobList.indexOf(job), 1)
     },
     chart () {
       let ctx = document.getElementById("canvas").getContext("2d")
