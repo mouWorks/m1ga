@@ -10,6 +10,8 @@ $queryString = '?cat=2001001001&area=6001001001&fmt=8&cols=J,JOB,NAME';
 
 if(isset($_GET['C'])){
     
+
+
     $case = $_GET['C'];
 
     switch($case)
@@ -17,12 +19,22 @@ if(isset($_GET['C'])){
 
         case 'c':
         case 'C':
+
+            echo 'fuck c';
+            exit();
+
+
             $queryString = '?cat=2001001001&area=6001001001&fmt=8&cols=J,JOB,NAME';
             break;
 
         case 'd':
         case 'D':
-            $queryString = '?cat=2001001001&area=6001001001&fmt=8&cols=J';
+
+            echo 'D';
+            exit();
+
+
+            $queryString = '?cat=2001001001&area=6001001000&fmt=8&cols=J&sltp=S&slmin=22000&slmax=81000';
             break;
 
 
