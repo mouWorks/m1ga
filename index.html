@@ -57,7 +57,7 @@
     <template id="mainPage">
       <div class="container">
         <ul class="i_content i_small">
-          <li class="title">歡迎來到<br>104 NEW START !</li>
+          <li class="title">歡迎來到<br>104 NEW START</li>
           <li class="des">“104 NEW START ” 提供您找尋工作時當地的生活品質指數，讓您能更有頭緒的選擇適合自己的工作。馬上展開旅程，一起改善自己的未來人生吧！</li>
           <li class="btn">
             <router-link to="/new">菜鳥出巢</router-link>
@@ -86,7 +86,12 @@
             <ul>
               <li class="title">{{job.JOB}}</li>
               <li class="des">{{job.NAME}}</li>
-              <li class="des"><span>{{job.ADDR_NO_DESCRIPT}}</span><span>&nbsp;|&nbsp;</span><span>{{job.PERIOD}}年經驗</span><span>&nbsp;|&nbsp;</span><span> 月薪 {{Number(job.SAL_MONTH_LOW)}}</span></li>
+              <li class="des"><span>{{job.ADDR_NO_DESCRIPT}}</span><span>&nbsp;|&nbsp;</span>
+                <!-- <span>{{Number(job.PERIOD)}}年經驗</span> -->
+                <span v-if="Number(job.PERIOD) > 0">{{Number(job.PERIOD)}}年經驗</span>
+                <span v-else> 不限經驗 </span>
+                
+                <span>&nbsp;|&nbsp;</span><span>月薪${{Number(job.SAL_MONTH_LOW)}}</span></li>
               <li class="yaya"><span>不加班</span><span>氣氛和諧</span><span>獎金制度優</span></li>
               <li class="love"><a href="javascript:;"><span class="loveyes"></span></a><a @click="remove(job, $event)"><span class="loveyno"></span></a></li>
               <li class="apply"><a href="javascript:;">我要應徵</a></li>
