@@ -1,5 +1,5 @@
-const test2View = {
-  template: '#test2Page',
+const question2View = {
+  template: '#question2Page',
 
   data () {
     return {
