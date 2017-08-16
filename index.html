@@ -126,12 +126,12 @@
           <li class="title">菜鳥出巢</li>
           <li class="des">我是初入職場的小菜鳥，我想要有不錯的薪資還有良好的生活品質。不同的城市會有不同面貌，我的第一份工作會在哪裡呢？</li>
           <li class="btn">
-            <router-link :to="{name: 'test', params: { role: 0 }}">前往</router-link>
+            <router-link :to="{name: 'question', params: { role: 0 }}">前往</router-link>
           </li>
         </ul>
       </div>
     </template>
-    <template id="testPage">
+    <template id="questionPage">
       <div class="container">
         <ul class="i_content">
           <li class="faq">
@@ -184,12 +184,12 @@
             </ul>
           </li>
           <li class="btn i_btn">
-            <router-link :to="{name: 'test2', params: { role: $route.params.role, cat: cat }}">下一步</router-link>
+            <router-link :to="{name: 'question2', params: { role: $route.params.role, cat: cat }}">下一步</router-link>
           </li>
         </ul>
       </div>
     </template>
-    <template id="test2Page">
+    <template id="question2Page">
       <div class="container">
         <ul class="i_content">
           <li class="faq">
@@ -212,12 +212,12 @@
             </ul>
           </li>
           <li class="btn i_btn">
-            <router-link :to="{name: 'test3', params: { role: $route.params.role, cat: $route.params.cat, sl: sl }}">下一步</router-link>
+            <router-link :to="{name: 'question3', params: { role: $route.params.role, cat: $route.params.cat, sl: sl }}">下一步</router-link>
           </li>
         </ul>
       </div>
     </template>
-    <template id="test3Page">
+    <template id="question3Page">
       <div class="container">
         <ul class="i_content">
           <li class="faq">
@@ -266,7 +266,7 @@
           <li class="title">老鳥跳巢</li>
           <li class="des">我在異鄉打滾多年了，父母希望我多陪陪他們，不知道我的家鄉有沒有合適的工作呢？</li>
           <li class="btn">
-            <router-link :to="{name: 'test', params: { role: 1 }}">前往</router-link>
+            <router-link :to="{name: 'question', params: { role: 1 }}">前往</router-link>
           </li>
         </ul>
       </div>
