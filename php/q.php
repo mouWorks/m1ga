@@ -11,7 +11,7 @@ $queryString = '?fmt=8&order=6&sltp=S&asc=1';
 //Limit Salary
 
 //Show the Salary
-$queryString .= '&cols=J,JOB,NAME,SAL_MONTH_LOW,ADDR_NO_DESCRIPT,PERIOD,WELFARE';
+$queryString .= '&cols=J,JOB,NAME,SAL_MONTH_LOW,ADDR_NO_DESCRIPT,PERIOD,WELFARE,JOBNO';
 
 //地區Array
 $areaArray = array(
@@ -81,10 +81,12 @@ if(isset($_GET['role'])){
     
     $role = $_GET['role'];
 
+    //newbie
     if ( 0 == $role){
         $queryString .= '&exp_all=2&exp=0,-1';
     }
 
+    //Seasoned
     if ( 1 == $role){
         $queryString .= '&exp_all=1&exp=2';
     }
