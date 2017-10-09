@@ -15,14 +15,22 @@
     <script src="js/components/main.js"></script>
     <script src="js/components/job.js"></script>
     <script src="js/components/new.js"></script>
-    <script src="js/components/test.js"></script>
-    <script src="js/components/test2.js"></script>
-    <script src="js/components/test3.js"></script>
+    <script src="js/components/question.js"></script>
+    <script src="js/components/question2.js"></script>
+    <script src="js/components/question3.js"></script>
     <script src="js/components/trans.js"></script>
     <script src="js/components/chart.js"></script>
     <title>M1GA</title>
   </head>
   <body>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-103576144-1', 'auto');
+      ga('send', 'pageview');
+    </script>
     <template id="headerSec">
       <header>
         <div class="header">
@@ -66,7 +74,7 @@
           <li class="gotop"><a href="javascript:;"></a></li>
           <li class="map">
             <ul>
-              <li class="info">{{status}}<span class="info_job"><span style="font-size:32px;">後端工程師</span><br>在新北市共有<span style="color:#ff7900;">{{jobCount}}</span> 個職缺</span></li>
+              <li class="info">{{status}}<span class="info_job"><span style="font-size:32px;">{{jobNameHash[$route.params.cat]}}</span><br>在新北市共有<span style="color:#ff7900;">{{jobCount}}</span> 個職缺</span></li>
               <li class="chart">
                 <div class="chart_title">生活指數表<span><img src="images/dot-orange.png">該區各項指數   <img src="images/dot-blue.png">全台平均</span></div>
                 <canvas id="canvas" height="300" width="600"></canvas>
@@ -78,9 +86,14 @@
             <ul>
               <li class="title">{{job.JOB}}</li>
               <li class="des">{{job.NAME}}</li>
-              <li class="des"><span>{{job.ADDR_NO_DESCRIPT}}</span><span>&nbsp;|&nbsp;</span><span>{{job.PERIOD}}年經驗</span><span>&nbsp;|&nbsp;</span><span>薪水{{job.SAL_MONTH_LOW}}</span></li>
+              <li class="des"><span>{{job.ADDR_NO_DESCRIPT}}</span><span>&nbsp;|&nbsp;</span>
+                <!-- <span>{{Number(job.PERIOD)}}年經驗</span> -->
+                <span v-if="Number(job.PERIOD) > 0">{{Number(job.PERIOD)}}年經驗</span>
+                <span v-else> 不限經驗 </span>
+                
+                <span>&nbsp;|&nbsp;</span><span>月薪${{Number(job.SAL_MONTH_LOW)}}</span></li>
               <li class="yaya"><span>不加班</span><span>氣氛和諧</span><span>獎金制度優</span></li>
-              <li class="love"><a href="javascript:;"><span class="loveyes"></span></a><a href="javascript:;"><span class="loveyno"></span></a></li>
+              <li class="love"><a href="javascript:;"><span class="loveyes"></span></a><a @click="remove(job, $event)"><span class="loveyno"></span></a></li>
               <li class="apply"><a href="javascript:;">我要應徵</a></li>
             </ul>
           </li>
@@ -113,12 +126,12 @@
           <li class="title">菜鳥出巢</li>
           <li class="des">我是初入職場的小菜鳥，我想要有不錯的薪資還有良好的生活品質。不同的城市會有不同面貌，我的第一份工作會在哪裡呢？</li>
           <li class="btn">
-            <router-link :to="{name: 'test', params: { role: 0 }}">前往</router-link>
+            <router-link :to="{name: 'question', params: { role: 0 }}">前往</router-link>
           </li>
         </ul>
       </div>
     </template>
-    <template id="testPage">
+    <template id="questionPage">
       <div class="container">
         <ul class="i_content">
           <li class="faq">
@@ -171,12 +184,12 @@
             </ul>
           </li>
           <li class="btn i_btn">
-            <router-link :to="{name: 'test2', params: { role: $route.params.role, cat: cat }}">下一步</router-link>
+            <router-link :to="{name: 'question2', params: { role: $route.params.role, cat: cat }}">下一步</router-link>
           </li>
         </ul>
       </div>
     </template>
-    <template id="test2Page">
+    <template id="question2Page">
       <div class="container">
         <ul class="i_content">
           <li class="faq">
@@ -199,12 +212,12 @@
             </ul>
           </li>
           <li class="btn i_btn">
-            <router-link :to="{name: 'test3', params: { role: $route.params.role, cat: $route.params.cat, sl: sl }}">下一步</router-link>
+            <router-link :to="{name: 'question3', params: { role: $route.params.role, cat: $route.params.cat, sl: sl }}">下一步</router-link>
           </li>
         </ul>
       </div>
     </template>
-    <template id="test3Page">
+    <template id="question3Page">
       <div class="container">
         <ul class="i_content">
           <li class="faq">
@@ -253,7 +266,7 @@
           <li class="title">老鳥跳巢</li>
           <li class="des">我在異鄉打滾多年了，父母希望我多陪陪他們，不知道我的家鄉有沒有合適的工作呢？</li>
           <li class="btn">
-            <router-link :to="{name: 'test', params: { role: 1 }}">前往</router-link>
+            <router-link :to="{name: 'question', params: { role: 1 }}">前往</router-link>
           </li>
         </ul>
       </div>

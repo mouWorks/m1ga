@@ -8,7 +8,7 @@ template#jobPage
           li.info
             | {{status}}
             span.info_job
-              span(style='font-size:32px;') 後端工程師
+              span(style='font-size:32px;') {{jobNameHash[$route.params.cat]}}
               br
               | 在新北市共有
               span(style='color:#ff7900') {{jobCount}}
@@ -40,7 +40,7 @@ template#jobPage
           li.love
             a(href='javascript:;')
               span.loveyes
-            a(href='javascript:;')
+            a(@click='remove(job, $event)')
               span.loveyno
           li.apply
             a(href='javascript:;') 我要應徵
