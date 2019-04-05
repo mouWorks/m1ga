@@ -44,7 +44,7 @@ const jobView = {
       }
     },
     url () {
-      return 'http://m1ga.win/php/q.php?' + $.param(this.params)
+      return 'http://localhost:9090/php/q.php?' + $.param(this.params)
     }
   },
 

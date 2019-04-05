@@ -43,6 +43,10 @@ class base
     
     }// end of function
 
+    /**
+     * Debug Purpose
+     * @param $data
+     */
     public function dd($data){
 
         echo '<pre>';
@@ -50,11 +54,17 @@ class base
         echo '</pre>';
     }
 
-    //Toss Out data;
+    /**
+     * @param $data
+     */
     public function toss($data){
+
+        //Required for CORS
+        header('Access-Control-Allow-Origin: *');
+        header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
+        header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Accept');
         header('Content-Type: application/json');
         echo $data;
-        //echo json_encode($data);
     }
 
 } //end of class
