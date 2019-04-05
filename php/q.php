@@ -100,9 +100,8 @@ if(isset($_GET['slmax'])){
     $queryString .= '&slmax=' . $_GET['slmax'];
 }
 
-//$base->dd($queryString);
-$data = $base->query($queryString);
-//echo 'check';
-//$base->dd($data);
-$base->toss($data);
-//echo 'try';
+//Send out to make Query
+$jobData = $base->query($queryString);
+
+//return Data
+$base->toss($jobData);
