@@ -11,9 +11,13 @@
 
 * Screenshot
 
-
-
-
+![image](screenshots/Intro.png)
+![image](screenshots/UserSelect.png)
+![image](screenshots/JobSelect.png)
+![image](screenshots/SalarySelect.png)
+![image](screenshots/ConditionSelect.png)
+![image](screenshots/DisplayResule.png)
+![image](screenshots/DisplayJobs.png)
 
 ---
 
