@@ -16,7 +16,7 @@
 ![image](screenshots/JobSelect.png)
 ![image](screenshots/SalarySelect.png)
 ![image](screenshots/ConditionSelect.png)
-![image](screenshots/DisplayResule.png)
+![image](screenshots/DisplayResult.png)
 ![image](screenshots/DisplayJobs.png)
 
 ---
@@ -33,5 +33,4 @@
     * visit via `localhost:9090`
     * `make stop` - Stop the app
     * you need to manually remove docker images
-    
 ----
