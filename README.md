@@ -9,18 +9,6 @@
     * Andy (Design)
 ---
 
-* Screenshot
-
-![image](screenshots/Intro.png)
-![image](screenshots/UserSelect.png)
-![image](screenshots/JobSelect.png)
-![image](screenshots/SalarySelect.png)
-![image](screenshots/ConditionSelect.png)
-![image](screenshots/DisplayResult.png)
-![image](screenshots/DisplayJobs.png)
-
----
-
 * project display via Docker
 * pre-req: 
     * `Docker` Environment
@@ -34,3 +22,15 @@
     * `make stop` - Stop the app
     * you need to manually remove docker images
 ----
+
+* Screenshot
+
+![image](screenshots/Intro.png)
+![image](screenshots/UserSelect.png)
+![image](screenshots/JobSelect.png)
+![image](screenshots/SalarySelect.png)
+![image](screenshots/ConditionSelect.png)
+![image](screenshots/DisplayResult.png)
+![image](screenshots/DisplayJobs.png)
+
+---
