@@ -7,7 +7,7 @@ orbs:
 jobs:
   build:
     docker:
-      - image: circleci/php:7.4
+      - image: circleci/php:7.1.32-fpm-node
     working_directory: ~/m1ga.m0u.work
     environment:
       - ZIPFILE_NAME: m1ga.tar.gz #Acutally no need lol
