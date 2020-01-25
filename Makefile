@@ -1,6 +1,7 @@
 #!/usr/bin/make -f
 IMAGE_NAME=mouworks_m1ga:1.0.0
 CONTAINER_NAME=mouworksM1GA
+BRANCH := $(shell git name-rev --name-only HEAD)
 
 all: build start
 
@@ -15,4 +16,13 @@ start:
 stop:
 	@echo ">>> Stop the image"
 	docker rm -f ${CONTAINER_NAME}
+
+# Git Related
+pull:
+	@echo ">>> Pull Code on Current branch [$(BRANCH)]"
+	git pull origin $(BRANCH) --rebase
+
+push:
+	@echo ">>> Current branch [$(BRANCH)] Pushing Code"
+	git push origin $(BRANCH)
 
