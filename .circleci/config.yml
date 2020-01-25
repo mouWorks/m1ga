@@ -1,0 +1,32 @@
+version: 2.1
+
+orbs:
+  slack: circleci/slack@3.4.0
+  jq: circleci/jq@1.9.0
+
+jobs:
+  docker:
+    - image: circleci/php:7.4
+  working_directory: ~/m1ga.m0u.work
+  environment:
+    - ZIPFILE_NAME: m1ga.tar.gz #Acutally no need lol
+    - DOCKER_REPO: mouwang
+    - DOCKER_IMAGE: m1ga
+  steps:
+    - checkout
+    - run:
+    name: Docker Hub Login
+    command: echo "${DOCKER_PASS}" | docker login --username ${DOCKER_USER} --password-stdin
+
+    - run:
+        name: Check Docker Version
+        command: docker -v
+
+    - run:
+        name: Move to Build Folder && Build
+        command: |
+          docker build -t ${DOCKER_REPO}/${DOCKER_IMAGE}:0.1.${CIRCLE_BUILD_NUM} .
+
+    - run:
+        name: Push to Docker Hub
+        command: docker push ${DOCKER_REPO}/${DOCKER_IMAGE}:0.1.${CIRCLE_BUILD_NUM}
