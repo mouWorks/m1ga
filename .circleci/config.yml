@@ -1,8 +1,10 @@
 version: 2.1
 
 orbs:
+  aws-eks: circleci/aws-eks@0.2.1
   slack: circleci/slack@3.4.0
   jq: circleci/jq@1.9.0
+  helm: circleci/helm@0.2.3
 
 jobs:
   build:
@@ -29,3 +31,16 @@ jobs:
       - run:
           name: Push to Docker Hub
           command: docker push ${DOCKER_REPO}/${DOCKER_IMAGE}:1.0.${CIRCLE_BUILD_NUM}
+  helm_upgrade:
+    executor: aws-eks/python
+    parameters:
+      cluster-name:
+        description: mouworks-cluster
+        type: string
+    steps:
+      - aws-eks/update-kubeconfig-with-authenticator:
+          cluster-name: << parameters.cluster-name >>
+          install-kubectl: true
+      - helm/upgrade-helm-chart:
+          chart: "./helmChart"
+          version: 1.0.${CIRCLE_BUILD_NUM}
