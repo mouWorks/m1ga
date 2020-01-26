@@ -61,29 +61,11 @@ jobs:
           cluster-name: << parameters.cluster-name >>
           install-kubectl: true
       - run:
-          name: Where Am I ?
+          name: Show Current File path
           command: pwd
       - run:
           name: list files
           command: ls
-      - run:
-          name: check Pipeline Value
-          command: echo ${CIRCLE_WORKFLOW_ID}
-      - run:
-          name: check Circle SHA
-          command: echo ${CIRCLE_SHA}
-      - run:
-          name: check Image build Num
-          command: echo ${CIRCLE_PREVIOUS_BUILD_NUM}
-#      - run:
-#          name: Export Image Number
-#          command: export IMAGE_NUM=1.0.${CIRCLE_PREVIOUS_BUILD_NUM}
-#      - run:
-#          name: Copy Command out
-#          command: cp .circleci/updateImageVersion.sh .
-#      - run:
-#          name: Update AppVersion
-#          command: ./updateImageVersion.sh
       - run:
           name: Update AppVersion in Chart.yaml
           command: |
@@ -91,8 +73,6 @@ jobs:
       - helm/upgrade-helm-chart:
           release-name: m1ga
           chart: "./helmChart"
-          version: 1.0.42
-#          values-to-override: appVersion=<< parameters.app-version>>
       - slack/status:
           channel: 'circle_ci'
           failure_message: "CI Fail! , Check CircleCI"
@@ -111,7 +91,7 @@ workflows:
       - build-image
       - helm-deploy:
           cluster-name: mouworks-cluster
-          app-version:  1.0.34
+          app-version: 1.0.${CIRCLE_PREVIOUS_BUILD_NUM}
           requires:
             - build-image
 
