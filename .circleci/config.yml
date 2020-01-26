@@ -35,7 +35,9 @@ jobs:
       cluster-name:
         description: mouworks-cluster
         type: string
+    working_directory: ~/m1ga
     steps:
+      - checkout
       - helm/install-helm-client:
           version: v3.0.0
       - run:
