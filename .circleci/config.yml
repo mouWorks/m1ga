@@ -78,8 +78,8 @@ jobs:
       - helm/upgrade-helm-chart:
           release-name: m1ga
           chart: "./helmChart"
-#          version: << parameters.app-version>>
-          values-to-override: appVersion=<< parameters.app-version>>
+          version: 1.0.42
+#          values-to-override: appVersion=<< parameters.app-version>>
       - slack/status:
           channel: 'circle_ci'
           failure_message: "CI Fail! , Check CircleCI"
