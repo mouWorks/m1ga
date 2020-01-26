@@ -62,12 +62,12 @@ jobs:
           version: << parameters.app-version>>
 #          values-to-override: appVersion=<< parameters.app-version>>
       - slack/status:
-          channel: 'm1ga-ci'
+          channel: 'circle_ci'
           failure_message: "CI Fail! , Check CircleCI"
           fail_only: true
           webhook: ${SLACK_WEBHOOK} # Optional: Enter a specific webhook here or the default will use $SLACK_WEBHOOK
       - slack/notify:
-          channel: 'm1ga-ci'
+          channel: 'circle_ci'
           title: "DeployCompleted! https://m1ga.m0u.work"
           message: "${DOCKER_REPO}/${DOCKER_IMAGE}: 1.0.${CIRCLE_BUILD_NUM}"
           color: "#42e2f4" # Optional: Assign custom colors for each notification
@@ -79,7 +79,7 @@ workflows:
       - build-image
       - helm-deploy:
           cluster-name: mouworks-cluster
-          app-version:  1.0.${CIRCLE_BUILD_NUM}
+          app-version:  1.0.34
           requires:
             - build-image
 
