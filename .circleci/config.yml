@@ -46,6 +46,7 @@ jobs:
           cluster-name: << parameters.cluster-name >>
           install-kubectl: true
       - helm/upgrade-helm-chart:
+          release-name: m1ga
           chart: "./helmChart"
           version: 1.0.${CIRCLE_BUILD_NUM}
 #          values-to-override: appVersion=1.0.${CIRCLE_BUILD_NUM}
