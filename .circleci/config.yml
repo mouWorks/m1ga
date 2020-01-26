@@ -39,6 +39,7 @@ jobs:
       - run:
           name: helm Deploy
           command: echo "This is helm deploy"
+      - aws-cli/setup
       - aws-eks/update-kubeconfig-with-authenticator:
           cluster-name: << parameters.cluster-name >>
           install-kubectl: true
@@ -55,5 +56,7 @@ workflows:
       - build-image
       - helm-deploy:
           cluster-name: mouworks-cluster
+          requires:
+            - build-image
 
 
