@@ -56,8 +56,8 @@ jobs:
       - helm/upgrade-helm-chart:
           release-name: m1ga
           chart: "helmChart"
-          version: 1.0.${CIRCLE_BUILD_NUM}
-#          values-to-override: appVersion=1.0.${CIRCLE_BUILD_NUM}
+#          version: 1.0.${CIRCLE_BUILD_NUM}
+          values-to-override: appVersion=1.0.${CIRCLE_BUILD_NUM}
 workflows:
   version: 2.1
   deployment:
