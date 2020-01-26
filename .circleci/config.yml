@@ -64,7 +64,7 @@ jobs:
           command: echo ${CIRCLE_SHA}
       - run:
           name: check Image build Num
-          command: echo ${CIRCLE_PREVIOUS_BUILD_NUM	}
+          command: echo ${CIRCLE_PREVIOUS_BUILD_NUM}
       - helm/upgrade-helm-chart:
           release-name: m1ga
           chart: "helmChart"
