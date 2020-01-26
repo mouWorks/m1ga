@@ -87,7 +87,7 @@ jobs:
       - run:
           name: Update AppVersion in Chart.yaml
           command: |
-            echo 'appVersion: 1.0.${CIRCLE_PREVIOUS_BUILD_NUM}' >> helmChart/Chart.yaml
+            echo 'appVersion: 1.0.'${CIRCLE_PREVIOUS_BUILD_NUM} >> helmChart/Chart.yaml
       - helm/upgrade-helm-chart:
           release-name: m1ga
           chart: "./helmChart"
