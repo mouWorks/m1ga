@@ -45,9 +45,15 @@ jobs:
       - aws-eks/update-kubeconfig-with-authenticator:
           cluster-name: << parameters.cluster-name >>
           install-kubectl: true
+      - run:
+          name: Where Am I ?
+          command: pwd
+      - run:
+          name: list files
+          command: ls
       - helm/upgrade-helm-chart:
           release-name: m1ga
-          chart: "./helmChart"
+          chart: "helmChart"
           version: 1.0.${CIRCLE_BUILD_NUM}
 #          values-to-override: appVersion=1.0.${CIRCLE_BUILD_NUM}
 workflows:
