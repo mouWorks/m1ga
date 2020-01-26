@@ -56,11 +56,20 @@ jobs:
       - run:
           name: list files
           command: ls
+      - run:
+          name: check Pipeline Value
+          command: echo ${CIRCLE_WORKFLOW_ID}
+      - run:
+          name: check Circle SHA
+          command: echo ${CIRCLE_SHA}
+      - run:
+          name: check Image build Num
+          command: echo ${CIRCLE_PREVIOUS_BUILD_NUM	}
       - helm/upgrade-helm-chart:
           release-name: m1ga
           chart: "helmChart"
-          version: << parameters.app-version>>
-#          values-to-override: appVersion=<< parameters.app-version>>
+#          version: << parameters.app-version>>
+          values-to-override: appVersion=<< parameters.app-version>>
       - slack/status:
           channel: 'circle_ci'
           failure_message: "CI Fail! , Check CircleCI"
