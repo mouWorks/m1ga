@@ -48,7 +48,8 @@ jobs:
 #          command : jq
       - helm/upgrade-helm-chart:
           chart: "./helmChart"
-          version: 1.0.${CIRCLE_BUILD_NUM}
+          version: 3.0.0
+          values-to-override: appVersion=1.0.${CIRCLE_BUILD_NUM}
 workflows:
   version: 2.1
   deployment:
