@@ -33,7 +33,10 @@ jobs:
     executor: aws-eks/python
     parameters:
       cluster-name:
-        description: mouworks-cluster
+        description: ClusterName
+        type: string
+      app-version:
+        description: AppVersion for image
         type: string
     working_directory: ~/m1ga
     steps:
@@ -56,8 +59,19 @@ jobs:
       - helm/upgrade-helm-chart:
           release-name: m1ga
           chart: "helmChart"
-#          version: 1.0.${CIRCLE_BUILD_NUM}
-          values-to-override: appVersion=1.0.${CIRCLE_BUILD_NUM}
+          version: << parameters.app-version>>
+#          values-to-override: appVersion=<< parameters.app-version>>
+      - slack/status:
+          channel: 'm1ga-ci'
+          failure_message: "CI Fail! , Check CircleCI"
+          fail_only: true
+          webhook: ${SLACK_WEBHOOK} # Optional: Enter a specific webhook here or the default will use $SLACK_WEBHOOK
+      - slack/notify:
+          channel: 'm1ga-ci'
+          title: "DeployCompleted! https://m1ga.m0u.work"
+          message: "${DOCKER_REPO}/${DOCKER_IMAGE}: 1.0.${CIRCLE_BUILD_NUM}"
+          color: "#42e2f4" # Optional: Assign custom colors for each notification
+          webhook: ${SLACK_WEBHOOK} # Optional: Enter a specific webhook here or the default will use $SLACK_WEBHOOK
 workflows:
   version: 2.1
   deployment:
@@ -65,6 +79,7 @@ workflows:
       - build-image
       - helm-deploy:
           cluster-name: mouworks-cluster
+          app-version:  1.0.${CIRCLE_BUILD_NUM}
           requires:
             - build-image
 
